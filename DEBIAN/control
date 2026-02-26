@@ -1,0 +1,22 @@
+Package: intel-sof-audio-fix
+Version: 1.0.0
+Section: sound
+Priority: optional
+Architecture: all
+Depends: initramfs-tools
+Maintainer: Matt West <stillmattwest@github.com>
+Homepage: https://github.com/stillmattwest/intel-sof-audio-fix
+Description: Fix audio on Intel Broadwell/Haswell laptops using SOF
+ Forces the Sound Open Firmware (SOF) driver for Intel Broadwell (INT3438)
+ and Haswell (INT33C8) audio DSPs, replacing the legacy catpt driver.
+ .
+ Affected laptops include the HP Spectre x360 (2015), and other Broadwell
+ and Haswell era laptops with I2C-connected audio codecs (RT286, RT5640,
+ RT5650, RT5677).
+ .
+ This package installs a modprobe.d configuration that:
+  - Sets snd_intel_dspcfg.dsp_driver=3 to select the SOF driver
+  - Blacklists the legacy snd_soc_catpt driver
+ .
+ Safe to install on any system. Has no effect on hardware without
+ Broadwell/Haswell audio DSPs.

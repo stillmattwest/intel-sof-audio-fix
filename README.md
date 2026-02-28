@@ -18,6 +18,8 @@ Fixes audio on Intel Broadwell and Haswell laptops by forcing the SOF (Sound Ope
 
 ## Install
 
+### Debian / Ubuntu
+
 Download the `.deb` from the [latest release](../../releases/latest), then:
 
 ```bash
@@ -25,10 +27,28 @@ sudo dpkg -i intel-sof-audio-fix_1.0.0_all.deb
 sudo reboot
 ```
 
+### Fedora
+
+Download the `.rpm` from the [latest release](../../releases/latest), then:
+
+```bash
+sudo dnf install ./intel-sof-audio-fix-1.0.0-1.*.noarch.rpm
+sudo reboot
+```
+
 ## Uninstall
+
+### Debian / Ubuntu
 
 ```bash
 sudo dpkg -r intel-sof-audio-fix
+sudo reboot
+```
+
+### Fedora
+
+```bash
+sudo dnf remove intel-sof-audio-fix
 sudo reboot
 ```
 
@@ -44,11 +64,21 @@ You should see a `bdw-rt286` or similar Broadwell/Haswell audio device.
 
 ## Build from source
 
+### Debian / Ubuntu
+
 ```bash
-make
+make deb
 ```
 
 Produces `intel-sof-audio-fix_1.0.0_all.deb` in the project root.
+
+### Fedora
+
+```bash
+make rpm
+```
+
+Produces `intel-sof-audio-fix-1.0.0-1.*.noarch.rpm` in the project root. Requires `rpm-build` (`sudo dnf install rpm-build`).
 
 ## License
 
